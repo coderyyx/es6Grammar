@@ -22,3 +22,15 @@ console.log(f(2))
 
 const f1=(x,...y)=> {return [x,y];}
 console.log(f1(1,2,3))
+
+//箭头函数没有自己的this，他的this是指外部代码块的this
+function ClearThis(){
+	this.a='yyyy';
+	setInterval(()=>{console.log(this.a)})
+}
+var c=new ClearThis();
+
+function calls(){
+	return ()=>{console.log(this.id)}
+}
+calls.call({id:2})()
