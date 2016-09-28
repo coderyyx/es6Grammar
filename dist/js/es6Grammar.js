@@ -83,5 +83,25 @@
 	};
 	console.log(f1(1, 2, 3));
 
+	//箭头函数没有自己的this，他的this是指外部代码块的this
+	function ClearThis() {
+		var _this = this;
+
+		this.a = 'yyyy';
+		setInterval(function () {
+			console.log(_this.a);
+		});
+	}
+	var c = new ClearThis();
+
+	function calls() {
+		var _this2 = this;
+
+		return function () {
+			console.log(_this2.id);
+		};
+	}
+	calls.call({ id: 2 })();
+
 /***/ }
 /******/ ]);

@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-	  // index : ['./es6.js'],
+    // index : ['./es6.js'],
     // vendors:['react','react-dom','monkeyui']
     es6Grammar:'./es6Grammar.js'
   },
@@ -18,8 +18,9 @@ module.exports = {
   module: {
     loaders: [
       { 
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
+        test: /\.jsx?$/,loader: 'babel-loader'
+        // exclude: /node_modules/,
+        // query: {presets: ['es2015', 'react']}
       },
       {
         test:/\.css$/,
