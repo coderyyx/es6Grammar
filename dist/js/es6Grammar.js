@@ -108,21 +108,37 @@
 		var arr = [];
 		//let 定义局部变量，变量不可提升，出了for循环就undefined
 
-		var _loop = function _loop(_i) {
-			arr[_i] = function () {
-				console.log(_i);
+		var _loop = function _loop(i) {
+			arr[i] = function () {
+				console.log(i);
 			};
-			arr[_i]();
+			arr[i]();
 		};
 
-		for (var _i = 1; _i < 10; _i++) {
-			_loop(_i);
+		for (var i = 1; i < 10; i++) {
+			_loop(i);
 		}
 		arr[6]();
 		console.log('const-' + index);
-		console.log('let-' + i); //not defined
+		// console.log('let-'+i);//not defined
 	}
 	getN();
+
+	// console.log(ls)
+	// console.log(vs)
+	// console.log(cs)
+	// let ls=2;
+	var vs = 1;
+	// const cs=3;
+	// let const 块级作用域 而var不受块级作用域限制
+	{
+		var _ls = 2;
+		var _cs = 3;
+		var ss = 4;
+	}
+	console.log(ss);
+	console.log(cs);
+	console.log(ls);
 
 /***/ }
 /******/ ]);

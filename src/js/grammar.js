@@ -47,6 +47,22 @@ function getN(){
 	}
 	arr[6]()
 	console.log('const-'+index);
-	console.log('let-'+i);//not defined
+	// console.log('let-'+i);//not defined
 }
 getN()
+
+// console.log(ls)
+// console.log(vs)
+// console.log(cs)
+// let ls=2;
+var vs=1;
+// const cs=3;
+// let const 块级作用域 而var不受块级作用域限制
+{
+	let ls=2;
+	const cs=3;
+	var ss=4;
+}
+console.log(ss)
+console.log(cs)
+console.log(ls)
