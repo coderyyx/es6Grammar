@@ -28,9 +28,25 @@ function ClearThis(){
 	this.a='yyyy';
 	setInterval(()=>{console.log(this.a)})
 }
-var c=new ClearThis();
+// var c=new ClearThis();
 
 function calls(){
 	return ()=>{console.log(this.id)}
 }
 calls.call({id:2})()
+
+function getN(){
+	const index=1;
+	var arr=[];
+	//let 定义局部变量，变量不可提升，出了for循环就undefined
+	for(let i=1;i<10;i++){
+		arr[i]=function(){
+			console.log(i)
+		};
+		arr[i]();
+	}
+	arr[6]()
+	console.log('const-'+index);
+	console.log('let-'+i);//not defined
+}
+getN()

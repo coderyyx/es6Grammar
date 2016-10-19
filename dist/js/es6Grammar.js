@@ -92,7 +92,7 @@
 			console.log(_this.a);
 		});
 	}
-	var c = new ClearThis();
+	// var c=new ClearThis();
 
 	function calls() {
 		var _this2 = this;
@@ -102,6 +102,27 @@
 		};
 	}
 	calls.call({ id: 2 })();
+
+	function getN() {
+		var index = 1;
+		var arr = [];
+		//let 定义局部变量，变量不可提升，出了for循环就undefined
+
+		var _loop = function _loop(_i) {
+			arr[_i] = function () {
+				console.log(_i);
+			};
+			arr[_i]();
+		};
+
+		for (var _i = 1; _i < 10; _i++) {
+			_loop(_i);
+		}
+		arr[6]();
+		console.log('const-' + index);
+		console.log('let-' + i); //not defined
+	}
+	getN();
 
 /***/ }
 /******/ ]);
