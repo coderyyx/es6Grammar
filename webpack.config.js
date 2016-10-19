@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-
+var  HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     // index : ['./es6.js'],
@@ -29,5 +29,10 @@ module.exports = {
     ]
   },
   plugins: [
+      new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template:'src/index.html',
+      inject : true
+    }),
   ]
 };
