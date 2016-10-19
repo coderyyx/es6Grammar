@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     // index : ['./es6.js'],
     // vendors:['react','react-dom','monkeyui']
-    es6Grammar:'./es6Grammar.js'
+    es6Grammar:'./src/js/grammar.js'
   },
   output: { 
     path: path.join(__dirname, "dist"),
