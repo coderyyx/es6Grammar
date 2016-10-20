@@ -131,14 +131,14 @@
 	var vs = 1;
 	// const cs=3;
 	// let const 块级作用域 而var不受块级作用域限制
+	//let有变量提升
+	//const 也有变量提升
 	{
-		var _ls = 2;
-		var _cs = 3;
+		console.log('cs' + cs);
+		var ls = 2;
+		var cs = 3;
 		var ss = 4;
 	}
-	console.log(ss);
-	console.log(cs);
-	console.log(ls);
 
 /***/ }
 /******/ ]);
