@@ -2,14 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 var  HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: {
-    // index : ['./es6.js'],
-    // vendors:['react','react-dom','monkeyui']
-    es6Grammar:'./src/js/grammar.js'
-  },
+  entry:['./src/js/grammar.js','./src/js/variable.js']
+  ,
   output: { 
     path: path.join(__dirname, "dist"),
-    filename: '/js/[name].js'
+    filename: '/js/bundle.js'
   },
   resolve: {
         extensions: ['', '.js', '.jsx']
