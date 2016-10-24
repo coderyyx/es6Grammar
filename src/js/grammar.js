@@ -55,7 +55,10 @@ getN()
 // console.log(vs)
 // console.log(cs)
 // let ls=2;
-var vs=1;
+console.log(typeof vs)//undefined
+
+// vs编译后变成了var定义的？、
+let vs=1;
 // const cs=3;
 // let const 块级作用域 而var不受块级作用域限制
 {
@@ -63,6 +66,25 @@ var vs=1;
 	const cs=3;
 	var ss=4;
 }
-console.log(ss)
-console.log(cs)
-console.log(ls)
+// console.log(ss)
+// console.log(cs)
+// console.log(ls)
+// 求数组交集
+const getArr=(arr1,arr2)=>{
+	const arr=[];
+	for(let i=0;i<arr1.length;i++){
+		for(let j=0;j<arr2.length;j++){
+			if(arr1[i]==arr2[j]){
+				arr.push(arr1[i]);
+			}		
+		}
+	}
+	console.log(arr.sort());
+	console.log(arr1.sort());
+	console.log(arr.sort(function(a,b){
+		return a-b>0?-1:1;
+	}))
+	return arr.sort().toString()==arr1.sort().toString()?true:false;
+	
+}
+console.log(getArr([1,6,3],[1,6,3,4]));
