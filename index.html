@@ -10,7 +10,19 @@
 <div id="test"></div>
 <!-- <script src="./dist/js/vendors.js"></script> -->
 <!-- <script src="./dist/js/index.js"></script> -->
-<script src="./dist/js/es6Grammar.js"></script>
-
+<!-- <script src="./dist/js/es6Grammar.js"></script> -->
+	<script>
+		var ob={k:'ff'};
+		console.log(JSON.stringify(ob))
+		// console.log(JSON.parse(ob));
+		var change=JSON.stringify(ob,['k'],9);//string
+		// JSON.stringify(value,replace,space)
+		//replace有过滤功能
+		// var cc=JSON.parse(change)
+		JSON.parse('{"a":"1","b":"2","c":{"d":{"e":"6"}}}',function(k,v){
+			console.log(k)
+		})
+		console.log(change);
+	</script>
 </body>
 </html>

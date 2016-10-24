@@ -61,11 +61,15 @@ console.log(typeof vs)//undefined
 let vs=1;
 // const cs=3;
 // let const 块级作用域 而var不受块级作用域限制
+//let有变量提升
+//const 也有变量提升
 {
+	console.log('cs'+cs)
 	let ls=2;
 	const cs=3;
 	var ss=4;
 }
+<<<<<<< HEAD
 // console.log(ss)
 // console.log(cs)
 // console.log(ls)
@@ -88,3 +92,6 @@ const getArr=(arr1,arr2)=>{
 	
 }
 console.log(getArr([1,6,3],[1,6,3,4]));
+=======
+
+>>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378

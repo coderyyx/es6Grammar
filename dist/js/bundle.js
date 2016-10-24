@@ -42,6 +42,14 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(1);
+	module.exports = __webpack_require__(2);
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -136,11 +144,18 @@
 	var vs = 1;
 	// const cs=3;
 	// let const 块级作用域 而var不受块级作用域限制
+	//let有变量提升
+	//const 也有变量提升
 	{
+<<<<<<< HEAD:dist/js/es6Grammar.js
+=======
+		console.log('cs' + cs);
+>>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378:dist/js/bundle.js
 		var ls = 2;
 		var cs = 3;
 		var ss = 4;
 	}
+<<<<<<< HEAD:dist/js/es6Grammar.js
 	// console.log(ss)
 	// console.log(cs)
 	// console.log(ls)
@@ -162,6 +177,20 @@
 		return arr.sort().toString() == arr1.sort().toString() ? true : false;
 	};
 	console.log(getArr([1, 6, 3], [1, 6, 3, 4]));
+=======
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	//测试变量提升
+	console.log(a);
+	console.log(b);
+	var a = 1;
+	var b = 2;
+>>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378:dist/js/bundle.js
 
 /***/ }
 /******/ ]);
