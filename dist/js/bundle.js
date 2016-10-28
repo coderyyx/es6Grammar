@@ -193,6 +193,7 @@
 
 	//为什么let {a}={a:1};就会报错？因为变量的声明和赋值是一体的
 	//上面的==let a ;let {a}={a:1}; 重复声明就会报错
+	//因为var允许重复声明，所以可以
 	var _ee$ss = { ee: "aaaa", ss: "bbb" },
 	    ee = _ee$ss.ee,
 	    ss = _ee$ss.ss;
