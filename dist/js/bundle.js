@@ -54,11 +54,11 @@
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	//es6函数传默认参数
 	function getY(x) {
-		var y = arguments.length <= 1 || arguments[1] === undefined ? "yang" : arguments[1];
+		var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "yang";
 
 
 		return x + "-" + y;
@@ -147,15 +147,11 @@
 	//let有变量提升
 	//const 也有变量提升
 	{
-<<<<<<< HEAD:dist/js/es6Grammar.js
-=======
 		console.log('cs' + cs);
->>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378:dist/js/bundle.js
 		var ls = 2;
 		var cs = 3;
 		var ss = 4;
 	}
-<<<<<<< HEAD:dist/js/es6Grammar.js
 	// console.log(ss)
 	// console.log(cs)
 	// console.log(ls)
@@ -176,8 +172,37 @@
 		}));
 		return arr.sort().toString() == arr1.sort().toString() ? true : false;
 	};
-	console.log(getArr([1, 6, 3], [1, 6, 3, 4]));
-=======
+	//console.log(getArr([1,6,3],[1,6,3,4]));
+	//变量的解构赋值
+	var a = 1,
+	    b = 2,
+	    c = 3;
+
+	console.log('---' + a, b, c);
+
+	//解构赋值允许指定默认值
+	var _ref = [2],
+	    _ref$ = _ref[0],
+	    x = _ref$ === undefined ? 1 : _ref$,
+	    _ref$2 = _ref[1],
+	    y = _ref$2 === undefined ? x : _ref$2;
+
+	console.log(x, y); //2,2
+
+	//对象的解构赋值
+
+	//为什么let {a}={a:1};就会报错？因为变量的声明和赋值是一体的
+	//上面的==let a ;let {a}={a:1}; 重复声明就会报错
+	var _ee$ss = { ee: "aaaa", ss: "bbb" },
+	    ee = _ee$ss.ee,
+	    ss = _ee$ss.ss;
+	//实际上是下面的形式的简写
+
+	var _ee$ss2 = { ee: "aaaa", ss: "bbb" },
+	    ee = _ee$ss2.ee,
+	    ss = _ee$ss2.ss;
+
+	console.log(ee, ss);
 
 /***/ },
 /* 2 */
@@ -190,7 +215,6 @@
 	console.log(b);
 	var a = 1;
 	var b = 2;
->>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378:dist/js/bundle.js
 
 /***/ }
 /******/ ]);

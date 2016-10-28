@@ -69,7 +69,6 @@ let vs=1;
 	const cs=3;
 	var ss=4;
 }
-<<<<<<< HEAD
 // console.log(ss)
 // console.log(cs)
 // console.log(ls)
@@ -91,7 +90,20 @@ const getArr=(arr1,arr2)=>{
 	return arr.sort().toString()==arr1.sort().toString()?true:false;
 	
 }
-console.log(getArr([1,6,3],[1,6,3,4]));
-=======
+//console.log(getArr([1,6,3],[1,6,3,4]));
+//变量的解构赋值
+var [a,b,c]=[1,2,3];
+console.log('---'+a,b,c);
 
->>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378
+//解构赋值允许指定默认值
+let [x=1,y=x]=[2];
+console.log(x,y);//2,2
+
+//对象的解构赋值
+
+//为什么let {a}={a:1};就会报错？因为变量的声明和赋值是一体的
+//上面的==let a ;let {a}={a:1}; 重复声明就会报错
+var {ee,ss}={ee:"aaaa",ss:"bbb"};
+//实际上是下面的形式的简写
+var {ee:ee,ss:ss}={ee:"aaaa",ss:"bbb"};
+console.log(ee,ss);
