@@ -54,6 +54,8 @@
 
 	"use strict";
 
+	var _console;
+
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	//es6函数传默认参数
@@ -186,14 +188,14 @@
 	    x = _ref$ === undefined ? 1 : _ref$,
 	    _ref$2 = _ref[1],
 	    y = _ref$2 === undefined ? x : _ref$2;
-
-	console.log(x, y); //2,2
+	//console.log(x,y);//2,2
 
 	//对象的解构赋值
 
 	//为什么let {a}={a:1};就会报错？因为变量的声明和赋值是一体的
 	//上面的==let a ;let {a}={a:1}; 重复声明就会报错
 	//因为var允许重复声明，所以可以
+
 	var _ee$ss = { ee: "aaaa", ss: "bbb" },
 	    ee = _ee$ss.ee,
 	    ss = _ee$ss.ss;
@@ -202,20 +204,103 @@
 	var _ee$ss2 = { ee: "aaaa", ss: "bbb" },
 	    ee = _ee$ss2.ee,
 	    ss = _ee$ss2.ss;
+	//console.log(ee,ss);
 
-	console.log(ee, ss);
+	function foo(_ref2) {
+		var x = _ref2.x,
+		    _ref2$y = _ref2.y,
+		    y = _ref2$y === undefined ? 5 : _ref2$y;
+
+		console.log(x + "-" + y);
+	}
+	foo({ x: 1, y: 2 });
+	//rest参数，接受函数多余参数，这样就不用arguements对象了，只能是最后一个参数
+	var rest = function rest(arr) {
+		for (var _len3 = arguments.length, a = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+			a[_key3 - 1] = arguments[_key3];
+		}
+
+		console.log(arr);
+		console.log(a);
+	};
+	rest(1, 2, 2, 3);
+	//...拓展运算符，rest参数的逆运算，将数组转化成逗号分隔的参数序列
+	(_console = console).log.apply(_console, [1, 2, 3, 3]);
+	//替代apply方法
+	var ff = function ff(x, y, z) {
+		console.log(x, y, z);
+	};
+	ff.apply(undefined, [2, 2, 2]);
+	//实现了iterator接口的对象，可以用拓展运算符将其转化成数组
+
+	//箭头函数使用注意点
+	//1、函数体内的this对象，就是定义时所在的对象，(箭头函数定义时所在的对象)而不是使用时所在的对象
+	//2、不可以当做构造函数，也就是说，不可以使用new命令，否则会抛出一个异常
+	//3、不可以使用arguements对象，该对象在函数体内不存在，如果要用，可以用rest参数代替
+	//4、不可以使用yield命令，因此箭头函数不能作为Generator函数
+	function thiss() {
+		var _this3 = this;
+
+		//console.log(this.id);
+		setTimeout(function () {
+			console.log('this' + _this3.id);
+		}, 100);
+	}
+	thiss.call({ id: 100 });
+	var myObj = {
+		f1: function f1() {
+			console.log(undefined);
+		}
+	};
+	//myObj.f1({id:1});
+
+	function fr() {
+		var _this4 = this;
+
+		return function () {
+			console.table(_this4);
+		};
+	}
+	fr.call({ id: 2 })();
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	//测试变量提升
 	console.log(a);
 	console.log(b);
 	var a = 1;
 	var b = 2;
+	function Timer() {
+	  var _this = this;
+
+	  this.s1 = 0;
+	  this.s2 = 0;
+	  // 箭头函数
+	  setInterval(function () {
+	    _this.s1++;
+	  }, 1000);
+	  //箭头函数中的this指向函数定义时所在的对象
+	  //箭头函数没有自己的this，不能用call，bind方法改变其中this的指向
+	  //普通函数中this指向函数运行时所在的对象
+	  // 普通函数
+	  setInterval(function () {
+	    console.log(this.s2); //NANthis 指向window对象
+	    this.s2++;
+	  }, 1000);
+	}
+
+	var timer = new Timer();
+
+	setTimeout(function () {
+	  return console.log('s1: ', timer.s1);
+	}, 3100);
+	setTimeout(function () {
+	  return console.log('s2: ', timer.s2);
+	}, 3100);
 
 /***/ }
 /******/ ]);
