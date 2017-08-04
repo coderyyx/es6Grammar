@@ -2,11 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 var  HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry:['./src/js/grammar.js','./src/js/variable.js']
+  entry:['./src/js/grammar.js']
   ,
   output: { 
     path: path.join(__dirname, "dist"),
-    filename: '/js/bundle.js'
+    filename: './js/bundle.js'
   },
   resolve: {
         extensions: ['', '.js', '.jsx']
