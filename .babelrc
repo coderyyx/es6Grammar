@@ -1,3 +1,208 @@
-{
-  "presets": ["es2015", "react", "stage-0"]
-}
+var post_url="http://jzzlwx.csqx.org.cn/Dt_bj_API/";
+var szqxUrl="http://sdzlszqx.biosan.cn";
+var baby_help="http://jzzlwx.csqx.org.cn/app/";
+var upload_url="http://sdzltp.xsesc.com/upload";
+var img_url="http://sdzltp.biosan.cn/img?file=";
+var BIOSAN=BIOSAN||{};BIOSAN.defaultLogin=1;
+BIOSAN.defaultName="出生缺陷干预救助与诊疗管理平台";
+BIOSAN.writeShiYanShi=false;
+BIOSAN.defaultDetailFrameItem="disstate1";
+BIOSAN.defaultDetailFrameIndex=2;
+BIOSAN.defaultExitButton=true;
+BIOSAN.defaultDetailItems=[
+{"itemId":"disstate7","itemName":"图片资料","index":7,"includeType":["诊断依据"],"pageIndex":14,"visible":true},
+{"itemId":"disstate0","itemName":"信息汇总","index":0,"visible":false},
+{"itemId":"disstate1","itemName":"新筛诊断","index":1,"Type":"Component","pageIndex":49,"visible":true},
+{"itemId":"disstate41","itemName":"临床症状","pageIndex":41,"index":41,"visible":true},
+{"itemId":"disstate2","itemName":"体格体征","pageIndex":46,"index":2,"visible":true},
+{"itemId":"disstate42","itemName":"常规检查","pageIndex":42,"index":42,"visible":true},
+{"itemId":"disstate43","itemName":"特殊检查","pageIndex":43,"index":43,"visible":true},
+{"itemId":"disstate44","itemName":"影像学","pageIndex":44,"index":44,"visible":true},
+{"itemId":"disstate45","itemName":"医嘱","pageIndex":45,"index":45,"visible":true},
+{"itemId":"disstate5","itemName":"用药记录","pageIndex":47,"index":5,"visible":true},
+{"itemId":"disstate6","itemName":"食谱记录","pageIndex":48,"index":6,"visible":true},
+{"itemId":"disstate4","itemName":"档案记录","index":4,"visible":false},
+{"itemId":"disstate11","itemName":"首诊信息","includeType":["首诊"],"index":11,"visible":false},{
+"itemId":"disstate10","itemName":"随诊信息","excludeType":["首诊"],"index":10,"visible":false},
+{"itemId":"disstate9","itemName":"智力检测","index":9,"visible":false},
+{"itemId":"disstate31","itemName":"实验室检查","index":31,"hasChild":true,"visible":false},
+{"itemId":"disstate32","itemName":"影像学检查","index":32,"hasChild":true,"visible":false}]
+BIOSAN.defaultTopNav=[{"href":"./diagnose_manage_list.jsp?rowdet=&tag=","className":"underline choosebt1","value":1,"itemName":"病历管理","visible":true},{"href":"./diagnose_manage_list_2.jsp?rowdet=&tag=","className":"underline choosebt3","value":3,"itemName":"待确诊管理","visible":true},{"href":"./diagnose_manage_list_4.jsp?rowdet=&tag=","className":"underline choosebt2","value":2,"itemName":"转诊病历","visible":true},
+{"href":"./diagnose_manage_list_3.jsp?rowdet=&tag=","className":"underline choosebt4","value":4,"itemName":"归档病历","visible":true}]
+
+
+
+
+var post_url="http://172.16.0.80:8090/Dt_bj_API/";
+var szqxUrl="http://172.16.0.10:2000";
+var baby_help = "http://172.16.0.80:8090/app/";
+var upload_url="http://172.16.0.10:1991/upload";
+var img_url="http://172.16.0.10:1991/img?file=";
+
+var BIOSAN = BIOSAN || {};
+BIOSAN.defaultLogin = 1;
+BIOSAN.defaultName="出生缺陷干预救助与诊疗管理平台";
+BIOSAN.writeShiYanShi=false;
+BIOSAN.defaultDetailFrameItem = "disstate1";
+BIOSAN.defaultDetailFrameIndex = 1;
+BIOSAN.defaultExitButton = true;
+BIOSAN.defaultVersion="0.2.0";
+BIOSAN.defaultDetailItems=[
+    {
+        "itemId" : "disstate7",
+        "itemName":"图片资料",
+        "index":7,
+	"includeType" :["诊断依据"],
+        "pageIndex":14,
+        "visible":true
+    },
+    {
+      "itemId" : "disstate0",
+      "itemName" : "信息汇总",
+      "index" : 0,
+      "visible" : false
+    },
+    {
+        "itemId" : "disstate1",
+        "itemName":"筛查结果",
+        "index":1,
+	"Type":"Component",
+	"ComponentIndex":0,
+	"pageIndex":49,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate41",
+        "itemName":"临床症状",
+        "pageIndex":41,
+        "index":41,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate2",
+        "itemName":"体格体征",
+	"Type":"Component",
+	"ComponentIndex":1,
+	"pageIndex":46,
+        "index":2,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate42",
+        "itemName":"常规检查",
+        "pageIndex":42,
+        "index":42,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate43",
+        "itemName":"特殊检查",
+        "pageIndex":43,
+        "index":43,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate44",
+        "itemName":"影像学",
+        "pageIndex":44,
+        "index":44,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate45",
+        "itemName":"结论和医嘱",
+        "pageIndex":45,
+        "index":45,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate5",
+        "itemName":"用药记录",
+	"pageIndex":47,
+        "index":5,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate6",
+        "itemName":"食谱记录",
+	"pageIndex":48,
+        "index":6,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate4",
+        "itemName":"档案记录",
+        "index":4,
+        "visible":false
+    },
+    {
+
+        "itemId" : "disstate11",
+        "itemName":"首诊信息",
+        "includeType" :["首诊"],
+        "index":11,
+        "visible":false
+    },
+    {
+
+        "itemId" : "disstate10",
+        "itemName":"随诊信息",
+        "excludeType":["首诊"],
+        "index":10,
+        "visible":true
+    },
+    {
+        "itemId" : "disstate9",
+        "itemName":"智力检测",
+        "index":9,
+        "visible":false
+    },
+    {
+        "itemId" : "disstate31",
+        "itemName":"实验室检查",
+        "index":31,
+        "hasChild":true,
+        "visible":false
+    }, 
+    {
+        "itemId" : "disstate32",
+        "itemName":"影像学检查",
+        "index":32,
+        "hasChild":true,
+        "visible":false
+    }
+]
+0 未绑定
+1 success
+-1 
+
+BIOSAN.defaultTopNav=[
+	{
+	   "href":"./diagnose_manage_list.jsp?rowdet=&tag=",
+	   "className":"underline choosebt1",
+	   "value":1,
+	   "itemName":"我的病历",
+	   "visible":true
+	},
+	{
+	   "href":"./diagnose_manage_list_2.jsp?rowdet=&tag=",
+	   "className":"underline choosebt3",
+	   "value":3,
+	   "itemName":"待确诊管理",
+	   "visible":false
+	},
+	{
+	    "href":"./diagnose_manage_list_4.jsp?rowdet=&tag=",
+	   "className":"underline choosebt2",
+	   "value":2,
+	   "itemName":"转诊病历",
+	   "visible":true
+	},
+	{
+	    "href":"./diagnose_manage_list_3.jsp?rowdet=&tag=",
+	   "className":"underline choosebt4",
+	   "value":4,
+	   "itemName":"归档病历",
+	   "visible":true
+	}
+]
