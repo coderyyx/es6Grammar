@@ -30,7 +30,7 @@ module.exports = {
   plugins: [
       new HtmlWebpackPlugin({
       title:'MyIndexTitle',
-      filename: 'ES6GRAMMAR/index.html',
+      filename: '../index.html',
       template:'./src/index.html',
       inject: 'body',
       hash:true
