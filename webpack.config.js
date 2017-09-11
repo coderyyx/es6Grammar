@@ -5,13 +5,15 @@ module.exports = {
   entry:['./src/js/variable.js']
   ,
   output: { 
-    path: path.join(__dirname, "dist"),
-    filename: '/js/bundle.js'
+    path: path.join(__dirname, "dist/js/"),
+    publicPath:'./js',
+    filename: 'bundle.js'
   },
   resolve: {
         extensions: ['', '.js', '.jsx']
   },
   watch:true,
+  devtool: 'eval-source-map',
   module: {
     loaders: [
       { 
@@ -27,9 +29,11 @@ module.exports = {
   },
   plugins: [
       new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template:'src/index.html',
-      inject : true
+      title:'MyIndexTitle',
+      filename: 'ES6GRAMMAR/index.html',
+      template:'./src/index.html',
+      inject: 'body',
+      hash:true
     }),
   ]
 };

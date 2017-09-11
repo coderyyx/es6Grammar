@@ -69,7 +69,6 @@ let vs=1;
 	const cs=3;
 	var ss=4;
 }
-<<<<<<< HEAD
 // console.log(ss)
 // console.log(cs)
 // console.log(ls)
@@ -91,7 +90,111 @@ const getArr=(arr1,arr2)=>{
 	return arr.sort().toString()==arr1.sort().toString()?true:false;
 	
 }
-console.log(getArr([1,6,3],[1,6,3,4]));
-=======
+//console.log(getArr([1,6,3],[1,6,3,4]));
+//变量的解构赋值
+var [a,b,c]=[1,2,3];
+console.log('---'+a,b,c);
 
->>>>>>> d8d652a0c2f171e0a22e6fab78e2c96bb9e4a378
+//解构赋值允许指定默认值
+let [x=1,y=x]=[2];
+//console.log(x,y);//2,2
+
+//对象的解构赋值
+
+//为什么let {a}={a:1};就会报错？因为变量的声明和赋值是一体的
+//上面的==let a ;let {a}={a:1}; 重复声明就会报错
+//因为var允许重复声明，所以可以
+var {ee,ss}={ee:"aaaa",ss:"bbb"};
+//实际上是下面的形式的简写
+var {ee:ee,ss:ss}={ee:"aaaa",ss:"bbb"};
+//console.log(ee,ss);
+function foo({x,y=5}){
+    console.log(x+"-"+y);
+}
+foo({x:1,y:2});
+//rest参数，接受函数多余参数，这样就不用arguements对象了，只能是最后一个参数
+var rest=(arr,...a)=>{
+    console.log(arr);
+    console.log(a);
+}
+rest(1,2,2,3);
+//...拓展运算符，rest参数的逆运算，将数组转化成逗号分隔的参数序列
+console.log(...[1,2,3,3]);
+//替代apply方法
+var ff=(x,y,z)=>{
+    console.log(x,y,z);
+}
+ff(...[2,2,2]);
+//实现了iterator接口的对象，可以用拓展运算符将其转化成数组
+
+//箭头函数使用注意点
+//1、函数体内的this对象，就是定义时所在的对象，(箭头函数、、定义时所在的对象)而不是使用时所在的对象
+//2、不可以当做构造函数，也就是说，不可以使用new命令，否则会抛出一个异常
+//3、不可以使用arguements对象，该对象在函数体内不存在，如果要用，可以用rest参数代替
+//4、不可以使用yield命令，因此箭头函数不能作为Generator函数
+function thiss(){
+    //console.log(this.id);
+    setTimeout(()=>{
+        console.log('this'+this.id);
+    },100)
+}
+thiss.call({id:100});
+var myObj={
+    f1:()=>{
+        console.log(this);
+    }
+}
+//myObj.f1({id:1});
+
+function fr(){
+    return ()=>{
+        console.table(this);
+    }
+}
+fr.call({id:2})();
+
+function sortArr(params) {
+	console.log(params?params:"");
+}
+/*
+	交换排序
+
+*/
+function sort(a){
+	let length=a.length;
+	for(var i=0; i<length-1; i++){
+		for(var j=i+1; j<length; j++){
+			if(a[i]>a[j]){
+			var temp=a[i];
+			a[i]=a[j];
+			a[j]=temp;
+			}
+		}
+		console.log(a);
+  }
+
+	return a;
+}
+
+/*
+	插入排序
+*/
+function sort1 (unsorted)
+{
+	for (var i = 1; i < unsorted.Length; i++)
+		{
+			if (unsorted[i - 1] > unsorted[i])
+			{
+				var temp = unsorted[i];
+				var j = i;
+				while (j > 0 && unsorted[j - 1] > temp)
+				{
+					unsorted[j] = unsorted[j - 1];
+					j--;
+				}
+				unsorted[j] = temp;
+			}
+		}
+}
+
+sort([1,4,3,2,5])
