@@ -156,3 +156,45 @@ fr.call({id:2})();
 function sortArr(params) {
 	console.log(params?params:"");
 }
+/*
+	交换排序
+
+*/
+function sort(a){
+	let length=a.length;
+	for(var i=0; i<length-1; i++){
+		for(var j=i+1; j<length; j++){
+			if(a[i]>a[j]){
+			var temp=a[i];
+			a[i]=a[j];
+			a[j]=temp;
+			}
+		}
+		console.log(a);
+  }
+
+	return a;
+}
+
+/*
+	插入排序
+*/
+function sort1 (unsorted)
+{
+	for (var i = 1; i < unsorted.Length; i++)
+		{
+			if (unsorted[i - 1] > unsorted[i])
+			{
+				var temp = unsorted[i];
+				var j = i;
+				while (j > 0 && unsorted[j - 1] > temp)
+				{
+					unsorted[j] = unsorted[j - 1];
+					j--;
+				}
+				unsorted[j] = temp;
+			}
+		}
+}
+
+sort([1,4,3,2,5])

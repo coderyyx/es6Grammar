@@ -1,8 +1,3 @@
-//测试变量提升
-console.log(a)
-console.log(b)
-let a=1;
-var b=2;
 function Timer() {
   this.s1 = 0;
   this.s2 = 0;
@@ -20,5 +15,24 @@ function Timer() {
 
 var timer = new Timer();
 
-setTimeout(() => console.log('s1: ', timer.s1), 3100);
-setTimeout(() => console.log('s2: ', timer.s2), 3100);
+// setTimeout(() => console.log('s1: ', timer.s1), 3100);
+// setTimeout(() => console.log('s2: ', timer.s2), 3100);
+
+//函数包装类型添加method =》给函数原型添加方法
+Function.prototype.method=function(type,func){
+    if(!this.prototype[type])
+      this.prototype[type]=func;
+    return this;
+}
+
+//Array Number Boolean 原型上的__proto__指向Object.prototype
+Object.prototype.method=function(type,func){
+    if(!this.prototype[type])
+      this.prototype[type]=func;
+    return this;
+}
+
+
+Array.method('yyx',function(){
+  console.log(this);
+})
