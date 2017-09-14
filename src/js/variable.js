@@ -13,7 +13,7 @@ function Timer() {
   }, 1000);
 }
 
-var timer = new Timer();
+// var timer = new Timer();
 
 // setTimeout(() => console.log('s1: ', timer.s1), 3100);
 // setTimeout(() => console.log('s2: ', timer.s2), 3100);
@@ -36,3 +36,20 @@ Object.prototype.method=function(type,func){
 Array.method('yyx',function(){
   console.log(this);
 })
+
+function f(){
+  console.log(1)
+  console.log(arguments)
+}
+
+function g(){
+  console.log(2)
+  console.log(arguments)
+}
+
+function h(){
+  console.log(3)
+  console.log(arguments)
+}
+
+f(g(h(11)))
