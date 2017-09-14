@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var  HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry:['./src/js/grammar.js','./src/js/variable.js']
+  entry:['./src/js/variable.js']
   ,
   output: { 
     path: path.join(__dirname, "dist/js/"),
@@ -30,7 +30,7 @@ module.exports = {
   plugins: [
       new HtmlWebpackPlugin({
       title:'MyIndexTitle',
-      filename: 'ES6GRAMMAR/index.html',
+      filename: '../index.html',
       template:'./src/index.html',
       inject: 'body',
       hash:true
